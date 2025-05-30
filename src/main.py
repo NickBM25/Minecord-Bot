@@ -11,8 +11,6 @@ bot = discord.Bot()
 async def on_ready():
     print(f"Bot {bot.user} ligado - BEEP BOOP")
 
-@bot.slash_command(name="hello", description="beep boop")
-async def hello(ctx: discord.ApplicationContext):
-    await ctx.respond("Poggers!")
-    
+bot.load_extension('cogs.hello')
+
 bot.run(TOKEN)

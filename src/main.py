@@ -2,11 +2,16 @@ import os
 import discord
 from dotenv import load_dotenv
 
+#token, thats it.
 load_dotenv()
 TOKEN = os.getenv('TOKEN')
 
-bot = discord.Bot()
+#setup intents and instantiate the bot
+intents = discord.Intents.default()
+intents.members = True
+bot = discord.Bot(intents=intents)
 
+#print in console when the bot is ready.
 @bot.event
 async def on_ready():
     await bot.sync_commands()
@@ -19,4 +24,4 @@ for filename in os.listdir(cogs_folder):
         extension_name = f"cogs.{filename[:-3]}"
         bot.load_extension(extension_name)
 
-bot.run(TOKEN)
+bot.run(TOKEN) #runs the bot, hopefully.

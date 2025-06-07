@@ -5,6 +5,8 @@ from dotenv import load_dotenv
 #token, thats it.
 load_dotenv()
 TOKEN = os.getenv('TOKEN')
+if not TOKEN:
+    raise ValueError('No Discord bot token found. Please set the TOKEN environment variable.')
 
 #setup intents and instantiate the bot
 intents = discord.Intents.default()

@@ -1,4 +1,5 @@
 import discord
+import os
 from discord.ext import commands
 
 class Admin(commands.Cog):
@@ -8,8 +9,7 @@ class Admin(commands.Cog):
 
     @discord.slash_command(
         name="reload",
-        description="Recarrega uma extensão do bot.",
-        guild_ids=[1377622231877816361]
+        description="Recarrega uma extensão do bot."
     )
     @commands.is_owner()
     async def reload(self, ctx: discord.ApplicationContext, extension: str):
